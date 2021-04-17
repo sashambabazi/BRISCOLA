@@ -1,0 +1,35 @@
+.game {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	/*position: static;*/
+	width: 100%;
+	height: 80vw;
+	left: 0px;
+	top: 0px;
+
+}
+
+.table {
+	display: flex;
+
+	background: #4B7C5F;
+
+	align-self: stretch;
+	flex-grow: 1;
+
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.deck {
+	position: relative;
+
+	right: 10%;
+}
+.hand {
+	display: flex;
+	flex-direction: row;
+
+}
