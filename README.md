@@ -1,6 +1,6 @@
 # Brisola
 
-Classic Italian Card-playing game built in React.
+Classic Italian card-playing game built in React.
 
 ## Goals
 
