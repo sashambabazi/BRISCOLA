@@ -23,13 +23,42 @@
 	justify-content: flex-end;
 }
 
+
+.played {
+	position: absolute;
+	display: flex;
+	
+
+
+	right: 60%;
+	/*top: 33%;*/
+}
+
+
 .deck {
-	position: relative;
+	position: absolute;
 
 	right: 10%;
 }
+
 .hand {
 	display: flex;
 	flex-direction: row;
+
+}
+
+.played > div:first-child {
+	position: absolute;
+	transform: rotate(-6deg);
+	left: 0px;
+	/*top: 16px;*/
+
+}
+
+.played > div:nth-child(2) {
+	position: absolute;
+	transform: rotate(6deg);
+	left: 32px;
+	/*top: 24px;*/
 
 }

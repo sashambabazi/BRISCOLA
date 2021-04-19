@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import clubs from '../other/icons/Trefle.svg';
 import spades from '../other/icons/Pique.svg';
 import hearts from '../other/icons/Coeur.svg';

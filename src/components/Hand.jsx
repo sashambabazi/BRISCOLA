@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Card from '../components/Card';
 import CardBack from '../components/CardBack';
 
-import GameContext from '../game/Game4';
+// import GameContext from '../game/Game4';
 
 import { createUseStyles } from 'react-jss';
 
@@ -28,7 +28,7 @@ const useStyles = createUseStyles({
 const Table = (props) => {
   // Declare a new state variable, which we'll call "count" 
 
-    const game = useContext(GameContext);
+    // const game = useContext(GameContext);
 
     const classes = useStyles();
 

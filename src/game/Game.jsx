@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Card from '../components/Card';
+import Card2 from '../components/Card2';
 import CardBack from '../components/CardBack';
-import Table from '../components/Table';
-import Hand from '../components/Hand';
-import GameContext from '../game/Game4';
+// import Table from '../components/Table';
+// import Hand from '../components/Hand';
+// import GameContext from '../game/Game4';
 
 import '../styles/Game.css';
 
@@ -12,9 +12,7 @@ import '../styles/Game.css';
 let suits = ['clubs', 'spades', 'hearts', 'diamonds'];
 let ranks = ['K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2', 'A'];
 
-
 let deck = [];
-
 for (const suit of suits) {
     for (const rank of ranks) {
         const card = { rank: rank, suit: suit }
@@ -23,40 +21,36 @@ for (const suit of suits) {
     }
 }
 
-// const game = {
-//     gameDeck: deck,
-//     playedPile: [],
-//     playerHand: [],
-// }
+let shuffle = (deck) => {
+// Fisher-Yates Algorithm modern version (from the book The Art of Computer Programming by Donald E. Knuth)
+    let shuffled = deck;
+
+    for(var i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * i)
+        const temp = shuffled[i]
+        shuffled[i] = shuffled[j]
+        shuffled[j] = temp
+    }
+
+    return shuffled;
+}
+
+
 
 export default class Game extends React.Component {
 
     state = {
-        gameDeck: deck,
+        gameDeck: shuffle(deck),
         playedPile: [],
         playerHand: [],
-
     };
 
 
-        // this.shuffleDeck = this.shuffleDeck.bind(this);
-        // this.dealCard = this.dealCard.bind(this);
-
-        // this.shuffleDeck();
-        // console.log(this.gameDeck);
-
     shuffleDeck = () => {
     // Fisher-Yates Algorithm modern version (from the book The Art of Computer Programming by Donald E. Knuth)
-        let shuffled = this.state.gameDeck;
+        let currentDeck = this.state.gameDeck;
 
-        for(var i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * i)
-            const temp = shuffled[i]
-            shuffled[i] = shuffled[j]
-            shuffled[j] = temp
-        }
-
-        this.setState((state) => ({ gameDeck: shuffled }));
+        this.setState( (state) => ({ gameDeck: shuffle(currentDeck) }) );
     }
 
 
@@ -100,8 +94,19 @@ export default class Game extends React.Component {
 
         } )
         
-        console.log(this.state.playedPile.length);
+        console.log(this.state.playedPile);
 
+    }
+
+    cardClick = (event, cardKey) => {
+
+        let clickedCard = event.target;
+
+        console.log(clickedCard);
+
+        (clickedCard.classList.contains("selected"))
+            ? this.playCard(cardKey)
+            : clickedCard.classList.toggle("selected");
     }
 
 
@@ -112,14 +117,22 @@ export default class Game extends React.Component {
         return (
                 <div className="game">
 
-                    {/*<Table />*/}
+                    {/* <Table /> */}
 
                     <div className={'table'}>
 
-                        {/*<PlayedPile />*/}
 
-                        {/***** Deck is just a cardback used for animation purposes,
-                          all that info can be handled within game*/}
+                        <div className={'played'}>
+
+                            { this.state.playedPile.slice(-2).map( (card) => ( 
+
+                                <Card2 cardKey={card} key={card} /> 
+
+                            ) ) }
+
+                        </div>
+
+                        {/***** Deck is just a cardback used for animation purposes, all that info can be handled within game */}
 
                         <div className={'deck'}>
                             {(this.state.gameDeck.length > 0)
@@ -131,24 +144,17 @@ export default class Game extends React.Component {
                         
                     </div>
 
-                    {/*<Hand />*/}
-                    <ul className={'hand'}>
+                    {/* <Hand /> */}
+
+                    <div className={'hand'}>
 
                         { this.state.playerHand.map( (card) => ( 
 
-                                <li onClick={ () => this.playCard(card)} >
+                            <Card2 cardKey={card} key={card} onClick={this.cardClick} /> 
 
-                                    <Card rank={card.rank} suit={card.suit} /> 
-
-                                </li>
-                            
                         ) ) }
-                        
-                    </ul>
 
-                    {/*<button className="square" onClick={ function() { alert('click'); } } >
-
-                            PLAY </button>*/}
+                    </div>
 
                     <button onClick={ () => this.dealCard() } > DEAL </button>
                     <button onClick={ () => this.shuffleDeck() } > SHUFFLE </button>

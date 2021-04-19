@@ -1,6 +1,7 @@
 import table from './table.svg';
 import Game from './game/Game';
 import Other from './other/Other';
+
 import './App.css';
 
 function App() {
