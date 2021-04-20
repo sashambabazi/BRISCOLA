@@ -27,22 +27,24 @@ export default class Card extends React.Component {
   constructor(props) {
     super(props);
 
-    let { cardKey, faceUp } = props;
+    let { cardData, faceUp } = props;
 
     this.state = {
           faceUp: faceUp
     };
 
+    this.id = cardData.id
+
     this.front = () => {
         // TODO: improve this re: conditional styling 
-        let getStyle = (cardKey) => {
-            return { color: (cardKey.suit === 'spades' || cardKey.suit === 'clubs') ? 'black' : 'red' }
+        let getStyle = (cardData) => {
+            return { color: (cardData.suit === 'spades' || cardData.suit === 'clubs') ? 'black' : 'red' }
         }
 
         return (
-          <div style = { getStyle(cardKey) } >
-              <div className="rank"> {cardKey.rank} </div>
-              <img src={icons.get(cardKey.suit)} className="suit" alt={cardKey.suit} />
+          <div style = { getStyle(cardData) } >
+              <div className="rank"> {cardData.rank} </div>
+              <img src={icons.get(cardData.suit)} className="suit" alt={cardData.suit} />
           </div>
         );
     }
@@ -61,12 +63,12 @@ export default class Card extends React.Component {
 
   render() {
     return (
-      <div className="card" onClick={(e) => this.props.onClick(e, this.props.cardKey)}>
+      <li className="card" onClick={(e) => this.props.onClick(e, this.props.cardData)}>
 
         {/* TODO: Introduce Cardback as an image and not its own component */}
         { (this.state.faceUp) ? this.front() : this.back }
 
-      </div>
+      </li>
     );
   }
 
@@ -74,9 +76,10 @@ export default class Card extends React.Component {
 
 
 Card.propTypes = {
-  cardKey: PropTypes.shape({
+  cardData: PropTypes.shape({
     rank: PropTypes.string,
-    suit: PropTypes.string
+    suit: PropTypes.string,
+    id: PropTypes.string
   }).isRequired,
   faceUp: PropTypes.bool,
 }
