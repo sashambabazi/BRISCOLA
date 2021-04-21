@@ -11,6 +11,12 @@
 
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .table {
 	display: flex;
 
@@ -28,16 +34,13 @@
 	position: absolute;
 	display: flex;
 	
-
-
-	right: 60%;
+	right: 50%;
 	/*top: 33%;*/
 }
 
 
 .deck {
 	position: absolute;
-
 	right: 10%;
 }
 
@@ -47,15 +50,15 @@
 
 }
 
-.played > div:first-child {
-	position: absolute;
+.played > li:first-child {
+	/*position: absolute;*/
 	transform: rotate(-6deg);
 	left: 0px;
 	/*top: 16px;*/
 
 }
 
-.played > div:nth-child(2) {
+.played > li:nth-child(2) {
 	position: absolute;
 	transform: rotate(6deg);
 	left: 32px;
