@@ -2,6 +2,9 @@
 
 Classic Italian card-playing game built in React.
 
+### Screens
+1. https://drive.google.com/file/d/1IQuHQ04OoGRQaq7ArbOT-zdeihU8DCA2/view?usp=sharing - Notice bug at 00:20
+    
 ## Tasks
 
 - [x] Game Skeleton
