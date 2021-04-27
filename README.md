@@ -17,9 +17,9 @@ Classic Italian card-playing game built in React.
 - [x] Card face (up/down) taken as prop
 - [x] enable select-then-play functionality through CSS
 - [x] **Duplication and rerendering problem / Multiple children with same key**
+- [x] Refactor Game.jsx into individual components (useContext, MobX)
 - [ ] **Revise cardClick function: select one card at a time**
 - [ ] **Revise Playedpile position and child-card funtionality: should programatically fan out**
-- [ ] Refactor Game.jsx into individual components (useContext, MobX)
 - [ ] Apply game logic
 - [ ] Style PlayerHand
 - [ ] Style card transitions from deck to hand, etc
