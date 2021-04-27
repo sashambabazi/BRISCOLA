@@ -1,51 +1,39 @@
-import React, { useContext } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { observer } from 'mobx-react';
+import { useCardGame } from '../stores/CardGameStore';
+
 import Card from '../components/Card';
-import CardBack from '../components/CardBack';
-
-// import GameContext from '../game/Game4';
-
-import { createUseStyles } from 'react-jss';
-
-const useStyles = createUseStyles({
-    hand: {
-        // display: 'flex',
-        // background: '#4B7C5F',
-        // alignSelf: 'stretch',
-        // flexGrow: '1',
-        // alignItems: 'center',
-        // justifyContent: 'flex-end',
-    },
-
-    // deck: {
-    //     position: 'relative',
-    //     right: '10%',
-    // }
-
-});
 
 
-const Table = (props) => {
-  // Declare a new state variable, which we'll call "count" 
+const Hand = observer(() => {
 
-    // const game = useContext(GameContext);
+    const game = useCardGame();
 
-    const classes = useStyles();
+    const cardClick = (event, card) => {
+        let clickedCard = event.target; // FIX this apparently applies to every internal element within card
+
+        console.log(clickedCard);
+
+        (clickedCard.classList.contains("selected"))
+            ? game.playCard(card)
+            : clickedCard.classList.add("selected");  //add line that removes selected from others
+
+    }
+
 
     return (
-        <div className={classes.hand}>
+        <ul className={'hand'}>
 
-            { game.playerHand.map( 
+            { game.playerHand.map( (card) => ( 
 
-                (card) => <Card rank={card.rank} suit={card.suit} /> )
+                <Card card={card} key={card.id} onClick={(event, card) => cardClick(event, card)} /> 
 
-            }
-            
-        </div>
+            ) ) }
+
+        </ul>
 
     );
 
-}
+})
 
-
-export default Table;
+export default Hand;

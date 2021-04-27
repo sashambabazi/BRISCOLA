@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './Other.css';
+import '../styles/Other.css';
+
 
 
 class Other extends React.Component {
