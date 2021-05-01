@@ -1,11 +1,17 @@
 import { CardGameProvider } from '../stores/CardGameStore';
 
-import PlayedPile from '../components/PlayedPile';
-import Deck from '../components/Deck';
-import Hand from '../components/Hand';
+import Played from '../piles/Played';
+import PlayerWon from '../piles/PlayerWon';
+import CompWon from '../piles/CompWon';
 
+import Deck from '../components/Deck';
+import PlayerHand from '../components/PlayerHand';
+import CompHand from '../components/CompHand';
+import Menu from '../components/Menu';
 
 import '../styles/Game.css';
+import '../styles/Hands.css';
+import '../styles/Piles.css';
 
 
 const Game = (props) => {
@@ -13,22 +19,24 @@ const Game = (props) => {
 	return (
 
 		<CardGameProvider >
-
 			<div className="game">
 
-		        <div className={'table'}>
+	        	<Menu />
 
-		        	<PlayedPile />
+		        <CompWon />
 
-		        	<Deck />
-	
-		        </div>
+		        <PlayerWon />
 
-		        <Hand />
+		        <CompHand />
+
+	        	<Deck />
+
+	        	<Played />
+
+		        <PlayerHand />
 
 			</div>
-
-    	</CardGameProvider>
+		</CardGameProvider>
 
 	);
 }

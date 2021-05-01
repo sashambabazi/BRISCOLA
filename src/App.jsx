@@ -7,18 +7,11 @@ import Other from './other/Other';
 
 import './App.css';
 
-
-
-
-
 class App extends React.Component {
 
 	state = { gameRunning: false };
 
-	startGame = () => {
-		this.setState(state => ({      gameRunning: true    }));
-	}
-
+	startGame = () => { this.setState(state => ({ gameRunning: true })); }
 
 	render() {	
 
@@ -26,12 +19,12 @@ class App extends React.Component {
 			
 			<div className="App">
 
-				{ (this.state.gameRunning) 
-					? <Game /> 
-					: <LandingScreen onClick={this.startGame} /> 
-				}
+					
+					{ (this.state.gameRunning) 
+						? <Game /> 
+						: <LandingScreen onClick={this.startGame} /> 
+					}
 
-				<Other />
 
 			</div>
 

@@ -51,21 +51,38 @@ export default class CardGame {
     
     gameDeck = shuffle(deck)
     playedPile = []
+    compHand = []
     playerHand = []
+    compWon = []
+    playerWon = []
+    brisc = {}
+
 
     constructor() {
         makeAutoObservable(this)
+        this.startGame()
+
     }
 
     dealCard(){
         var topCard = this.gameDeck.pop()
-        this.playerHand.push(topCard)
+        return topCard
     }
 
     playCard(played) {
         var newPlayerHand = this.playerHand.filter(card => card !== played)
         this.playerHand = newPlayerHand
         this.playedPile.push(played)
+    }
+
+    startGame() {
+        for (let i = 0; i < 2; i++) {
+            this.playerHand.push(this.dealCard())
+            this.compHand.push(this.dealCard())
+        }
+
+        this.brisc = this.gameDeck[0]
+
     }
 }
 

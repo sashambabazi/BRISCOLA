@@ -1,22 +1,25 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { useCardGame } from '../stores/CardGameStore';
 
-import cardback from '../other/cardback.svg';
+import briscolaBanner from '../other/briscolaBanner.svg';
 
+import '../styles/Menu.css';
 
-const Deck = observer(() => {
-
-    const game = useCardGame();
+const Menu = observer(() => {
 
     return (
 
-        <div className='deck' onClick={ ()=>game.dealCard() } >
+        <div className='menu' >
 
-            {(game.gameDeck.length > 0)
-                ? ( <div className="card" > <img src={cardback} className="back-image" alt='card-back' /> </div> )
-                : ( <div className="empty-deck" /> )
-            }
+			<div className="title"> <img src={briscolaBanner} alt='Briscola' /> </div>
+
+			<button className="button restart" onClick={ null }>
+				RESTART
+			</button>
+
+			<button className="button exit" onClick={ null }>
+				EXIT
+			</button>
           
         </div>
 
@@ -24,4 +27,7 @@ const Deck = observer(() => {
 
 })
 
-export default Deck;
+export default Menu;
+
+
+			

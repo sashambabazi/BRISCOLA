@@ -1,10 +1,5 @@
-
-
-import PlayedPile from '../components/PlayedPile';
-import Deck from '../components/Deck';
-import Hand from '../components/Hand';
-
-// import briscolaBanner from '../other/briscolaBanner.svg';
+import briscolaBanner from '../other/briscolaBanner.svg';
+import '../styles/Landing.css';
 
 
 const LandingScreen = (props) => {
@@ -12,13 +7,16 @@ const LandingScreen = (props) => {
 	return (
 
 		<div className="game">
+			
+			<div className="landing">
 
-	        <h3> BRISCOLA </h3>
-	        {/*<img src={briscolaBanner} className="back-image" alt='card-back' />*/}
+		        <img src={briscolaBanner} alt='Briscola' />
 
-			<button onClick={(e) => props.onClick(e)}>
-				PLAY GAME
-			</button>
+				<button className="button start" onClick={(e) => props.onClick(e)}>
+					START GAME
+				</button>
+	
+			</div>
 
 		</div>
 

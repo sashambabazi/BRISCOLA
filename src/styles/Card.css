@@ -1,52 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@700&display=swap');
 
 .card {
-	width: 120px;
-	height: 160px;
-	border-radius: 16px;
+	display:			flex;
+	align-items:		flex-start;
+	
+	width:				144px;
+	height:				192px;
 
-	display: flex;
-	padding: 8px;
-
-
-	background: rgba(250, 249, 247, 1);
-	border: 1px solid rgba(225, 225, 226, 0.3);
-	box-shadow: -1px -1.5px 1px rgba(0, 0, 0, 0.1);
+	border-radius:		16px;
+	box-shadow:			-1px -1.5px 1px rgba(0, 0, 0, 0.1);
 }
 
+.face { background: 	rgba(250, 249, 247, 1); }
 
-.back-image {
-	height: 100%;
-	width: 100%;
+.card-info {
+	margin: 			8px;
+	display: 			flex;
+	flex-direction:		column;
+	align-items:		center;
 }
-
 
 .rank {
-	max-width: 28px;
-	max-height: 28px;
+	max-width:			28px;
+	max-height:			28px;
+	padding:			2px 2px;
 
-	font-family: 'Averia Serif Libre', cursive;
-	font-size: 28px;
-	line-height: 28px;
-
-	text-align: center;
-
-	padding: 0px 0px 4px;
+	font-family:		'Averia Serif Libre', cursive;
+	font-size:			28px;
+	line-height:		28px;
 }
 
 
 .suit {
-	width: 24px;
-	height: 24px;
-	padding: 0px 0px 4px;
-
-/*make this default*/
-
+	width:				24px;
+	height:				24px;
+	padding:			4px 2px;
 }
 
-
-.selected {
-	position:relative;
-
-	bottom: 100px;
-}
+.back { }

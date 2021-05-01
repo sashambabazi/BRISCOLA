@@ -1,6 +1,5 @@
 .other {
-	display: flex;
-	flex-direction: row;
+	
 	justify-content: space-between;
 	align-items: flex-start;
 	padding: 72px;
@@ -11,7 +10,6 @@
 }
 
 .other1 {
-	position: static;
 	width: 299px;
 	height: 249px;
 	left: 72px;
@@ -24,7 +22,6 @@
 }
 
 .other2 {
-	position: static;
 	width: 471px;
 	height: 291px;
 	left: 541px;
@@ -37,7 +34,6 @@
 }
 
 .other3 {
-	position: static;
 	width: 192px;
 	height: 175px;
 	left: 1182px;

@@ -9,16 +9,18 @@ import '../styles/Card.css';
 
 const Card = observer( ({ card, onClick }) => {
 
+	//only destructure card because onclick might change from time to tiem
+
     return (
         
-        <li className="card" onClick={(e) => onClick(e, card)}>
+        <div className="card face" onClick={(e) => onClick(e, card)}>
 
-            <div style = {{ color: card.color }} >
+            <div className="card-info" style = {{ color: card.color }} >
                 <div className="rank"> {card.rank} </div>
                 <img src={icons.get(card.suit)} className="suit" alt={card.suit} />
             </div>
 
-        </li>
+        </div>
     );
 
 })
