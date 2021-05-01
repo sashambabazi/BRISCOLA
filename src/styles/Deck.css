@@ -1,0 +1,16 @@
+
+.deck {
+	position:	absolute;
+	right: 		calc(5% + 144px);
+	top:		calc(50% - 192px/2);
+
+}
+
+.brisc {
+	position: 	absolute;
+	transform: 	matrix(0.75, -0.66, 0.66, 0.75, -80, 24);
+}
+
+.deck > .back {
+	position: 	absolute;
+}

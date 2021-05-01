@@ -1,0 +1,38 @@
+
+.hand {
+	position: 	absolute;
+	display: 	flex;
+	right: 		calc(50% - 288px/2);
+}
+
+.hand > div:first-child { transform: 	rotate(-3deg); }
+
+.hand > div:nth-child(2) { transform: 	rotate(3deg); }
+
+
+
+
+.player {
+	bottom:		-72px;
+	transform: 	scale(1.2,1.2);
+}
+
+
+
+.comp {
+	top:		-48px;
+	transform: 	scale(.9, .9);
+}
+
+.comp > div:first-child { transform: 	matrix(1, -0.1, 0.1, 1, 24, 0); }
+
+.comp > div:nth-child(2) { transform: 	matrix(1, 0.1, -0.1, 1, -24, 0); }
+
+
+
+
+
+.selected {
+	position: 	relative;
+	bottom: 	100px;
+}

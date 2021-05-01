@@ -1,0 +1,44 @@
+@import url("https://use.typekit.net/gji4zlu.css");
+
+.landing {
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+
+
+}
+
+.button {
+	display: block;
+	border: none;
+	background-color: inherit;
+	border-radius: 8px;
+
+	cursor: pointer;
+
+	font-family: etna-condensed, sans-serif;
+	font-weight: 800;
+	font-size: 36px;
+	line-height: 36px;
+
+	text-align: center;
+
+
+	padding: 12px 36px 4px;
+	margin: 16px 0px;
+
+
+	color: #542E00;
+}
+
+.start {
+
+}
+
+.button:hover {
+  background: #542E00;
+  color: #FFC157;
+
+
+}
