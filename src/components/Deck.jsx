@@ -10,19 +10,19 @@ import '../styles/Deck.css';
 
 const Deck = observer(() => {
 
-    const game = useCardGame();
+    const { gameDeck, brisc, dealCard } = useCardGame();
     
     return (
 
-        <div className='deck' onClick={() => game.dealCard()}>
+        <div className='deck' onClick={() => dealCard()}>
         
-            { (game.gameDeck.length > 0)
-                ? ( <div className="brisc"> <Card card={game.brisc} key={game.brisc.id} /> </div> )
+            { (gameDeck.length > 0)
+                ? ( <div className="brisc"> <Card card={brisc} key={brisc.id} /> </div> )
                 : null
             }
 
-            { (game.gameDeck.length > 1)
-                ? ( <div className="card back"> <img src={cardback} alt='card-back' /> </div> )
+            { (gameDeck.length > 1)
+                ? ( <div className='card back'> <img src={cardback} alt='card-back' /> </div> )
                 : null
             }
           

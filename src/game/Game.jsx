@@ -1,24 +1,29 @@
-import { CardGameProvider } from '../stores/CardGameStore';
+import CardGame, { CardGameProvider } from '../stores/CardGameStore';
+
+// import TestDash from '../test/TestDash';
+
+import Deck from '../components/Deck';
+import Menu from '../components/Menu';
 
 import Played from '../piles/Played';
 import PlayerWon from '../piles/PlayerWon';
 import CompWon from '../piles/CompWon';
 
-import Deck from '../components/Deck';
-import PlayerHand from '../components/PlayerHand';
-import CompHand from '../components/CompHand';
-import Menu from '../components/Menu';
+import PlayerHand from '../hands/PlayerHand';
+import CompHand from '../hands/CompHand';
 
 import '../styles/Game.css';
 import '../styles/Hands.css';
 import '../styles/Piles.css';
 
 
-const Game = (props) => {
+const game = new CardGame();
+
+const Game = () => {
 
 	return (
 
-		<CardGameProvider >
+		<CardGameProvider game = {game} >
 			<div className="game">
 
 	        	<Menu />

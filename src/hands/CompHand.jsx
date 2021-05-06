@@ -6,7 +6,7 @@ import cardback from '../other/cardback.svg';
 
 
 
-const Hand = observer(() => {
+const Hand = observer(( props ) => {
 
     const { comp } = useCardGame();
     // const game = useCardGame(); // MAKE THIS FUNCTIONAL

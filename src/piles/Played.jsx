@@ -1,4 +1,5 @@
-import React from 'react';
+import { toJS } from 'mobx';
+
 import { observer } from 'mobx-react';
 import { useCardGame } from '../stores/CardGameStore';
 
@@ -7,19 +8,21 @@ import Card from '../components/Card';
 
 const PlayedPile = observer(() => {
 
-    const game = useCardGame();
+    const { playedPile } = useCardGame();
+
+	console.log(toJS(playedPile));
 
     return (
 
-        <ul className={'played'}> 
+        <div className={'played'}> 
 
-            { game.playedPile.slice(-2).map( (card) => ( 
+            { playedPile.filter(card => (card !== undefined)).slice(-2).map( (card) => (
 
-                <Card card={card} key={card.id} onClick={null} /> 
+            	<Card card={card} key={card.id} onClick={null} />
 
             ) ) }
 
-        </ul>
+        </div>
 
     );
 
